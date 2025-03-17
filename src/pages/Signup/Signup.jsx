@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-import signup from "../../assets/bgimg.png"; 
+import { useNavigate } from "react-router-dom";
+import { FaEnvelope, FaLock, FaUser, FaCheck } from "react-icons/fa";
+import { motion } from "framer-motion";
+import signupBg from "../../assets/signupBg2.jpg";
 
-const SignupPage = ({ onLoginClick }) => {
-  const navigate = useNavigate(); 
-
+const SignupPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -14,207 +14,182 @@ const SignupPage = ({ onLoginClick }) => {
     agreeToTerms: false,
   });
 
-  const [passwordError, setPasswordError] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
+  const [errors, setErrors] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validatePassword = (password) => {
-    const regex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return regex.test(password);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     let valid = true;
+    const newErrors = { password: "", confirmPassword: "" };
 
     if (!validatePassword(formData.password)) {
-      setPasswordError(
-        "Password must be at least 8 characters long and contain uppercase, lowercase, numbers, and special characters."
-      );
+      newErrors.password =
+        "Password must contain: 8+ characters, uppercase, lowercase, number, and special character";
       valid = false;
-    } else {
-      setPasswordError("");
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setConfirmPasswordError("Passwords do not match.");
+      newErrors.confirmPassword = "Passwords do not match";
       valid = false;
-    } else {
-      setConfirmPasswordError("");
     }
 
+    setErrors(newErrors);
+
     if (valid) {
-      console.log("Form submitted:", formData);
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      navigate("/dashboard");
     }
+    setIsSubmitting(false);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div
-        className="w-full max-w-7xl overflow-hidden rounded-xl shadow-lg flex flex-col md:flex-row border border-[#2A7D9B]/30"
-        style={{ boxShadow: "0 0 15px rgba(42, 125, 155, 0.3)" }} 
+    <div className="mt-16 min-h-screen flex items-center justify-center p-4 ">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-200"
       >
-        {/* Left Panel - Input Fields */}
-        <div className="w-full md:w-7/12 bg-white p-8">
+        {/* Left Panel - Form */}
+        <div className="w-full md:w-1/2 p-12">
           <div className="max-w-md mx-auto">
-            <h1 className="text-3xl font-bold text-center text-gray-700 mb-2">
-              Register Your Free Account!
-            </h1>
-            <h2 className="text-2xl text-center text-gray-600 mb-8">
-              Create an Account
-            </h2>
+            <div className="mb-10">
+              <h1 className="text-4xl font-extrabold text-gray-900 mb-2">
+                Join <span className="text-[#f26524]">ACE</span> Community
+              </h1>
+              <p className="text-gray-600">Start managing your padel bookings like a pro</p>
+            </div>
 
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label htmlFor="fullName" className="block text-gray-700 mb-2">
-                  Full Name
-                </label>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-4">
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaUser className="h-5 w-5 text-gray-400" />
-                  </div>
+                  <FaUser className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="text"
-                    id="fullName"
                     name="fullName"
                     value={formData.fullName}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A7D9B]"
-                    placeholder="John Doe"
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    placeholder="Full Name"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f26524] focus:border-transparent transition-all"
                     required
                   />
                 </div>
-              </div>
 
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 mb-2">
-                  Email
-                </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaEnvelope className="h-5 w-5 text-gray-400" />
-                  </div>
+                  <FaEnvelope className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="email"
-                    id="email"
                     name="email"
                     value={formData.email}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A7D9B]"
-                    placeholder="example@email.com"
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="Email Address"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f26524] focus:border-transparent transition-all"
                     required
                   />
                 </div>
-              </div>
 
-              <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700 mb-2">
-                  Password
-                </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaLock className="h-5 w-5 text-gray-400" />
-                  </div>
+                  <FaLock className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="password"
-                    id="password"
                     name="password"
                     value={formData.password}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A7D9B]"
-                    placeholder="••••••••"
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    placeholder="Create Password"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f26524] focus:border-transparent transition-all"
                     required
                   />
+                  {errors.password && <p className="text-red-500 text-sm mt-2">{errors.password}</p>}
                 </div>
-                {passwordError && (
-                  <p className="text-red-500 text-sm mt-1">{passwordError}</p>
-                )}
-              </div>
 
-              <div className="mb-4">
-                <label
-                  htmlFor="confirmPassword"
-                  className="block text-gray-700 mb-2"
-                >
-                  Confirm Password
-                </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaLock className="h-5 w-5 text-gray-400" />
-                  </div>
+                  <FaLock className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400" />
                   <input
                     type="password"
-                    id="confirmPassword"
                     name="confirmPassword"
                     value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A7D9B]"
-                    placeholder="••••••••"
+                    onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                    placeholder="Confirm Password"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#f26524] focus:border-transparent transition-all"
                     required
                   />
+                  {errors.confirmPassword && (
+                    <p className="text-red-500 text-sm mt-2">{errors.confirmPassword}</p>
+                  )}
                 </div>
-                {confirmPasswordError && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {confirmPasswordError}
-                  </p>
-                )}
+              </div>
+
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  name="agreeToTerms"
+                  checked={formData.agreeToTerms}
+                  onChange={(e) => setFormData({ ...formData, agreeToTerms: e.target.checked })}
+                  className="w-4 h-4 text-[#f26524] rounded focus:ring-[#f26524]"
+                  required
+                />
+                <label className="ml-2 text-sm text-gray-600">
+                  I agree to the{" "}
+                  <a href="/terms" className="text-[#f26524] hover:underline">
+                    Terms of Service
+                  </a>{" "}
+                  and{" "}
+                  <a href="/privacy" className="text-[#f26524] hover:underline">
+                    Privacy Policy
+                  </a>
+                </label>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#2A7D9B] text-white py-2 px-4 rounded-md hover:bg-[#528DAB] focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:ring-opacity-50 transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-[#f26524] to-[#d4521e] text-white py-3 px-6 rounded-xl font-semibold hover:from-[#528DAB] hover:to-[#2A7D9B] transition-all transform hover:scale-105 disabled:opacity-75"
               >
-                Register
+                {isSubmitting ? "Creating Account..." : "Get Started Free"}
               </button>
             </form>
 
-            <div className="mt-6 text-center text-gray-600">
+            <div className="mt-8 text-center text-gray-600">
               Already have an account?{" "}
               <button
-                onClick={() => navigate("/login")} // Redirect to login page
-                className="text-[#2A7D9B] hover:underline"
+                onClick={() => navigate("/login")}
+                className="text-[#f26524] font-semibold hover:underline"
               >
-                Login
+                Sign In
               </button>
             </div>
           </div>
         </div>
 
-        {/* Right Panel - Image with Gradient */}
-        <div
-          className="w-full md:w-5/12 text-white p-8 flex flex-col items-center justify-center text-center relative"
-          style={{
-            backgroundImage: `url(${signup})`, // Replace with your image path
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          {/* Gradient Overlay */}
+        {/* Right Panel - Graphic */}
+        <div className="w-full md:w-1/2 bg-gradient-to-br from-[#051b23] to-[#112534] relative hidden md:block">
           <div
-            className="absolute inset-0 bg-gradient-to-r from-[#2A7D9B]/80 to-[#112534]/80"
-            aria-hidden="true"
-          ></div>
+            className="absolute inset-0 bg-cover bg-center opacity-30"
+            style={{ backgroundImage: `url(${signupBg})` }}
+          />
+        <div className="relative z-10 h-full flex items-center justify-center p-12 text-center">
+  <div className="max-w-md">
+    <h2 className="text-5xl font-extrabold text-white leading-tight mb-6">
+      Elevate Your <span className="text-[#f26524]">Padel</span> Experience
+    </h2>
+    <p className="text-lg text-gray-200 mb-6">
+      Join a thriving community of passionate players and take your game to the next level.
+    </p>
+  
+  </div>
+</div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-xs mx-auto">
-            <h1 className="text-3xl font-bold mb-6">
-              Streamline Your Padel Bookings & Matches
-            </h1>
-            <p className="text-gray-200 text-sm">
-              We prioritize your privacy and security on and off the court. Your
-              personal data is always protected and never shared.
-            </p>
-          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -39,127 +39,110 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Before the Fold (BTF) Banner */}
-      <section
-        className="relative h-screen flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `url('${Hero}')`,
-        }}
-      >
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-[#000000] opacity-70"></div>
+      <section className="bg-yellow-50 overflow-hidden">
+                <div className="flex flex-col lg:flex-row lg:items-stretch lg:min-h-[800px]">
+                    <div className="relative flex items-center justify-center w-full lg:order-2 lg:w-7/12">
+                        <div className="relative px-4 pt-24 pb-16 text-center sm:px-6 md:px-24 2xl:px-32 lg:py-24 lg:text-left">
+                            <h1 className="text-4xl font-bold text-black sm:text-6xl xl:text-8xl">Get it done.<br /> Fast, Easy.</h1>
+                            <p className="mt-8 text-xl text-black">We help you to make your remote work life easier. Build a distraction-free working experience.</p>
+                            <form className="max-w-xl mx-auto mt-8 bg-white lg:mx-0 sm:bg-transparent lg:mt-12 rounded-xl">
+                                <div className="p-4 sm:p-2 sm:bg-white sm:border-2 sm:border-transparent sm:rounded-full sm:focus-within:border-orange-500 sm:focus-within:ring-1 sm:focus-within:ring-orange-500">
+                                    <div className="flex flex-col items-start sm:flex-row">
+                                        <div className="flex-1 w-full min-w-0">
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                placeholder="Enter email to get started"
+                                                className="block w-full px-4 py-4 text-base text-center text-black placeholder-gray-500 border-transparent rounded-full sm:text-left focus:border-transparent focus:ring-0 caret-orange-500"
+                                                required
+                                            />
+                                        </div>
+                                        <button type="submit" className="inline-flex items-center justify-center w-full px-4 py-4 mt-4 font-semibold text-white transition-all duration-200 bg-orange-500 border border-transparent rounded-full sm:w-auto sm:ml-4 sm:mt-0 hover:bg-orange-600">Try 14 days free</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <p className="mt-5 text-base text-black">Instant access. No credit card required.</p>
+                        </div>
+                    </div>
+                    <div className="relative w-full overflow-hidden lg:order-1 h-96 lg:h-auto lg:w-5/12">
+                        <div className="absolute inset-0">
+                            <img className="object-cover w-full h-full scale-150" src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/3/man-working-on-laptop.jpg" alt="Man working on laptop" />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div className="absolute bottom-0 left-0 p-4 sm:p-6 lg:p-8">
+                            <div className="flex items-center">
+                                <svg className="w-10 h-10 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                                </svg>
+                                <h2 className="font-bold text-white text-7xl ml-2.5">395</h2>
+                            </div>
+                            <p className="max-w-xs mt-1.5 text-xl text-white">Professionals have organized their desk via PostCra</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        {/* Banner Content */}
-        <div className="relative z-10 text-center text-white max-w-4xl px-4">
-          <h1 className="text-5xl font-bold mb-6">
-            Elevate Your Club Management with Our Innovative Solutions
-          </h1>
-          <p className="text-xl mb-8">
-            Streamline operations, enhance member experiences, and grow your
-            club with our cutting-edge platform.
-          </p>
-          <Link
-            to="/request-demo"
-            className="bg-[#F26524] hover:bg-[#F26524]/90 text-white px-8 py-3 rounded-md text-lg font-medium transition-colors"
-          >
-            Request a Demo
-          </Link>
+            <section className="py-20 bg-gradient-to-b from-white to-[#F8FAFC]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <span className="inline-block mb-4 text-sm font-semibold text-[#F26524] uppercase tracking-wide">
+        Why Choose Us
+      </span>
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        Transform Your Club Management Experience
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Advanced solutions designed to streamline operations and enhance player engagement
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Feature 1 */}
+      <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[#f0f4f7]">
+        <div className="w-14 h-14 mb-6 rounded-lg bg-[#2A7D9B]/10 flex items-center justify-center">
+          <svg className="w-7 h-7 text-[#2A7D9B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
         </div>
-      </section>
-
-      <section className="py-16 bg-white relative">
-  <div className="max-w-7xl mx-auto px-6">
-    {/* Section Heading */}
-    <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
-      Why Choose Us?
-    </h2>
-
-    {/* Feature 1 */}
-    <div className="relative flex flex-col md:flex-row items-center mb-20">
-      <div className="w-full md:w-1/2 px-6 order-2 md:order-1">
-        <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-          Effortless Club Management
-        </h3>
-        <p className="text-lg text-gray-600 mb-4">
-          Say goodbye to manual scheduling! Our platform automates bookings,
-          payments, and member management, allowing you to focus on creating
-          an engaging club environment.
-        </p>
-        <ul className="list-disc text-gray-600 text-lg ml-5 space-y-2">
-          <li>Automated court reservations</li>
-          <li>Secure online payments</li>
-          <li>Performance analytics for clubs</li>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Smart Automation</h3>
+        <p className="text-gray-600 mb-6">Automate bookings, payments, and member coordination with AI-driven solutions</p>
+        <ul className="space-y-3">
+          <li className="flex items-center text-gray-600">
+            <svg className="w-5 h-5 text-[#F26524] mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+            </svg>
+            Real-time availability tracking
+          </li>
         </ul>
-        <button className="mt-6 bg-[#2A7D9B] hover:bg-[#2A7D9B]/90 text-white px-6 py-2 rounded-md font-medium transition-colors shadow-lg hover:shadow-xl">
-          Learn More
-        </button>
       </div>
-      <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2">
-        <img
-          src={Managment}
-          alt="Effortless Club Management"
-          className="w-full max-w-lg transform hover:scale-105 transition-all duration-500 rounded-xl shadow-lg"
-        />
-      </div>
-    </div>
 
-    {/* Feature 2 */}
-    <div className="relative flex flex-col md:flex-row items-center mb-20">
-      <div className="w-full md:w-1/2 flex justify-center">
-        <img
-          src={Match}
-          alt="Smart Matchmaking"
-          className="w-full max-w-lg transform hover:scale-105 transition-all duration-500 rounded-xl shadow-lg"
-        />
+      {/* Feature 2 */}
+      <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[#f0f4f7]">
+        <div className="w-14 h-14 mb-6 rounded-lg bg-[#2A7D9B]/10 flex items-center justify-center">
+          <svg className="w-7 h-7 text-[#2A7D9B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h11V3l9 11h-7v7H3V10z"/>
+          </svg>
+        </div>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Seamless Communication</h3>
+        <p className="text-gray-600 mb-6">Keep members informed with instant notifications and updates</p>
       </div>
-      <div className="w-full md:w-1/2 px-6">
-        <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-          Smart Matchmaking
-        </h3>
-        <p className="text-lg text-gray-600 mb-4">
-          Finding the right opponent has never been easier! Our AI-powered
-          matchmaking system pairs you with players of similar skill levels
-          for fair and exciting matches.
-        </p>
-        <ul className="list-disc text-gray-600 text-lg ml-5 space-y-2">
-          <li>AI-based skill-level matching</li>
-          <li>Personalized game recommendations</li>
-          <li>Nearby player discovery</li>
-        </ul>
-        <button className="mt-6 bg-[#008080] hover:bg-[#008080]/90 text-white px-6 py-2 rounded-md font-medium transition-colors shadow-lg hover:shadow-xl">
-          Learn More
-        </button>
-      </div>
-    </div>
 
-    {/* Feature 3 */}
-    <div className="relative flex flex-col md:flex-row items-center mb-20">
-      <div className="w-full md:w-1/2 px-6 order-2 md:order-1">
-        <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-          Real-Time Performance Tracking
-        </h3>
-        <p className="text-lg text-gray-600 mb-4">
-          Keep track of your game progress with detailed analytics. Monitor
-          your strengths, weaknesses, and match history to continuously improve.
-        </p>
-        <ul className="list-disc text-gray-600 text-lg ml-5 space-y-2">
-          <li>Live match statistics</li>
-          <li>Track wins, losses, and progress</li>
-          <li>Personalized improvement tips</li>
-        </ul>
-        <button className="mt-6 bg-[#F26524] hover:bg-[#F26524]/90 text-white px-6 py-2 rounded-md font-medium transition-colors shadow-lg hover:shadow-xl">
-          Learn More
-        </button>
+      {/* Feature 3 */}
+      <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[#f0f4f7]">
+        <div className="w-14 h-14 mb-6 rounded-lg bg-[#2A7D9B]/10 flex items-center justify-center">
+          <svg className="w-7 h-7 text-[#2A7D9B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7 16V6h10v10H7z"/>
+          </svg>
+        </div>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Comprehensive Reporting</h3>
+        <p className="text-gray-600 mb-6">Get detailed insights on member activity and club performance</p>
       </div>
-      <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2">
-        <img
-          src={Stats}
-          alt="Performance Tracking"
-          className="w-full max-w-lg transform hover:scale-105 transition-all duration-500 rounded-xl shadow-lg"
-        />
-      </div>
+
+     
     </div>
   </div>
 </section>
+
 
 
       {/* App Download Section */}
@@ -240,237 +223,235 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className="py-16" style={{background: "linear-gradient(135deg, #E5F0F4, #F0F7FA)", }}>
-  <div className="max-w-7xl mx-auto px-4">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-      {/* Left Side - Informative Text */}
-      <div className="flex flex-col justify-start"> {/* Changed justify-center to justify-start */}
-        <h2 className="text-3xl font-bold text-gray-800">
-          Are you interested in exploring ACE COMMUNITY's offerings to optimize
-          your venue's operations and management?
+
+
+
+      <section className="py-20 bg-gradient-to-b from-[#F8FAFC] to-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+      {/* Left Content */}
+      <div className="space-y-6">
+        <div className="inline-block px-4 py-2 bg-[#2A7D9B]/10 rounded-full text-[#2A7D9B] font-medium mb-4">
+          Contact Us
+        </div>
+        <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+          Optimize Your Venue Operations with ACE Community
         </h2>
-        <p className="text-lg text-gray-600 mb-6">
-          If you're keen on discovering what ACE COMMUNITY can provide for you,
-          your players, and your venue, complete the form!
-        </p>
         <p className="text-lg text-gray-600">
-          Are you a club?{" "}
-          <span className="text-[#2A7D9B] font-semibold hover:underline">
-            Connect with us
-          </span>
+          Discover how our innovative solutions can transform your club management 
+          and elevate player experiences. Complete the form to schedule a personalized demo.
         </p>
+        
+        <div className="mt-8 p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">For Clubs & Organizations</h3>
+          <p className="text-gray-600">
+            Looking for enterprise solutions?{" "}
+            <a href="#contact" className="text-[#2A7D9B] font-medium hover:underline">
+              Contact our sales team →
+            </a>
+          </p>
+        </div>
       </div>
 
-      {/* Right Side - Form */}
-      <div className="bg-gray-100 p-8 rounded-xl shadow-2xl border border-gray-100">
+      {/* Form Container */}
+      <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10">
         {submitted ? (
-          <div className="text-center text-green-600">
-            <p className="text-xl font-semibold">
-              Thank you for your request! We'll get back to you shortly.
+          <div className="text-center p-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
+              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Request Received</h3>
+            <p className="text-gray-600">
+              We'll contact you within 24 hours. In the meantime, check our{" "}
+              <a href="/faq" className="text-[#2A7D9B] hover:underline">FAQ page</a>.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* First Name and Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* First Name */}
               <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  First Name*
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  First Name *
                 </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
-                  placeholder="Enter your first name"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent peer"
+                    placeholder="John"
+                    required
+                  />
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none peer-required:block">
+                    <span className="text-red-500">*</span>
+                  </div>
+                </div>
               </div>
+
+              {/* Last Name */}
               <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Last Name
                 </label>
                 <input
-                  type="text"
-                  id="lastName"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
-                  placeholder="Enter your last name"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent"
+                  placeholder="Doe"
                 />
               </div>
             </div>
 
-            {/* Email and Phone Number */}
+            {/* Email & Phone */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email*
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email *
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
-                  placeholder="Enter your email"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent peer"
+                    placeholder="john@example.com"
+                    required
+                  />
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none peer-required:block">
+                    <span className="text-red-500">*</span>
+                  </div>
+                </div>
               </div>
+
               <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number
                 </label>
                 <input
                   type="tel"
-                  id="phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
-                  placeholder="Enter your phone number"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent"
+                  placeholder="+1 (555) 000-0000"
                 />
               </div>
             </div>
 
-            {/* Club Name and Country */}
+            {/* Club & Country */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="clubName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Club Name*
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Club Name *
                 </label>
-                <input
-                  type="text"
-                  id="clubName"
-                  name="clubName"
-                  value={formData.clubName}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
-                  placeholder="Enter your club name"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    name="clubName"
+                    value={formData.clubName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent peer"
+                    placeholder="ACME Sports Club"
+                    required
+                  />
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none peer-required:block">
+                    <span className="text-red-500">*</span>
+                  </div>
+                </div>
               </div>
+
               <div>
-                <label
-                  htmlFor="country"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Choose Country
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Country *
                 </label>
                 <select
-                  id="country"
                   name="country"
                   value={formData.country}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent appearance-none bg-select-arrow bg-no-repeat bg-right-4"
                   required
                 >
-                  <option value="">Select your country</option>
+                  <option value="">Select Country</option>
                   <option value="USA">United States</option>
                   <option value="UK">United Kingdom</option>
                   <option value="Spain">Spain</option>
-                  {/* Add more countries as needed */}
+                  {/* Add more countries */}
                 </select>
               </div>
             </div>
 
-            {/* Other Information */}
+            {/* Additional Info */}
             <div>
-              <label
-                htmlFor="otherInfo"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Other Information
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Additional Information
               </label>
               <textarea
-                id="otherInfo"
                 name="otherInfo"
                 value={formData.otherInfo}
                 onChange={handleChange}
                 rows="4"
-                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2A7D9B] focus:border-[#2A7D9B]"
-                placeholder="Enter any additional information"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2A7D9B] focus:border-transparent"
+                placeholder="Tell us about your specific needs..."
               ></textarea>
             </div>
 
             {/* Checkboxes */}
             <div className="space-y-4">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="agreeCommunications"
-                  name="agreeCommunications"
-                  checked={formData.agreeCommunications}
-                  onChange={handleChange}
-                  className="w-4 h-4 text-[#2A7D9B] bg-white border-gray-300 rounded focus:ring-[#2A7D9B]"
-                />
-                <label
-                  htmlFor="agreeCommunications"
-                  className="ml-2 text-sm text-gray-600"
-                >
-                  I agree to receive other communications from ACE COMMUNITY.
-                </label>
+              <div className="relative flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    type="checkbox"
+                    name="agreeCommunications"
+                    checked={formData.agreeCommunications}
+                    onChange={handleChange}
+                    className="w-4 h-4 text-[#2A7D9B] border-gray-300 rounded focus:ring-[#2A7D9B]"
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label className="text-gray-600">
+                    I agree to receive marketing communications from ACE Community
+                  </label>
+                </div>
               </div>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="agreePrivacy"
-                  name="agreePrivacy"
-                  checked={formData.agreePrivacy}
-                  onChange={handleChange}
-                  className="w-4 h-4 text-[#2A7D9B] border-gray-300 rounded focus:ring-[#2A7D9B]"
-                  required
-                />
-                <label
-                  htmlFor="agreePrivacy"
-                  className="ml-2 text-sm text-gray-600"
-                >
-                  I agree to allow ACE COMMUNITY to store and process my personal
-                  data.*
-                </label>
+
+              <div className="relative flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    type="checkbox"
+                    name="agreePrivacy"
+                    checked={formData.agreePrivacy}
+                    onChange={handleChange}
+                    className="w-4 h-4 text-[#2A7D9B] border-gray-300 rounded focus:ring-[#2A7D9B] peer"
+                    required
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label className="text-gray-600">
+                    I accept the{" "}
+                    <a href="/terms" className="text-[#2A7D9B] hover:underline">
+                      Terms of Service
+                    </a>{" "}
+                    and{" "}
+                    <a href="/privacy" className="text-[#2A7D9B] hover:underline">
+                      Privacy Policy
+                    </a>{" "}
+                    *
+                  </label>
+                </div>
               </div>
             </div>
-
-            {/* Privacy Policy Link */}
-            <p className="text-sm text-gray-600">
-              For more information, please look at our{" "}
-              <a
-                href="/privacy-policy"
-                className="text-[#2A7D9B] hover:underline"
-              >
-                Privacy Policy
-              </a>
-              .
-            </p>
 
             {/* Submit Button */}
-            <div>
-              <button
-                type="submit"
-                className="w-full bg-[#2A7D9B] hover:bg-[#2A7D9B]/90 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-md"
-              >
-                Send
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#F26524] hover:bg-[#E55B1A] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 transform hover:scale-[1.02]"
+            >
+              Schedule Free Consultation
+            </button>
           </form>
         )}
       </div>

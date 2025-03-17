@@ -38,7 +38,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className=" mt-12 min-h-screen flex items-center justify-center p-4">
       <div
         className="w-full max-w-6xl overflow-hidden rounded-xl shadow-lg flex flex-col md:flex-row border border-[#2A7D9B]/30"
         style={{ boxShadow: "0 0 15px rgba(42, 125, 155, 0.3)" }} 

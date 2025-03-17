@@ -1,140 +1,125 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FiPhone, FiMapPin } from "react-icons/fi";
-import Logo from '../../assets/logo.png'
+import Logo from '../../assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#112534] text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
+    <footer className="bg-[#112534] text-gray-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+          
+          {/* Brand Column */}
+          <div className="space-y-6">
             <div className="flex items-center">
-              <img className="h-20" src={Logo} alt="" />
-              
+              <img src={Logo} alt="ACE Community" className="h-16 w-auto" />
             </div>
-            <p className="text-gray-300">
-              The complete tech solution for padel centers. Simplify management and enhance player experience.
+            <p className="text-sm leading-relaxed">
+              Revolutionizing padel management through innovative 
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-[#2A7D9B]">
-                <FaFacebook size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#2A7D9B]">
-                <FaTwitter size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#2A7D9B]">
-                <FaInstagram size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#2A7D9B]">
-                <FaLinkedin size={20} />
-              </a>
+              {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Home
+          {/* Navigation */}
+          <div className="space-y-6">
+            <h3 className="text-white font-semibold text-lg">Navigation</h3>
+            <nav className="space-y-3">
+              {[
+                ['Home', '/'],
+                ['About Us', '/about'],
+                ['Features', '/features'],
+                ['Contact', '/contact'],
+                ['Demo', '/demo']
+              ].map(([title, url]) => (
+                <Link
+                  key={url}
+                  to={url}
+                  className="block text-sm hover:text-[#2A7D9B] transition-colors"
+                >
+                  {title}
                 </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/usps" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  USPs
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/book-demo" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Book a Demo
-                </Link>
-              </li>
-            </ul>
+              ))}
+            </nav>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Our Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="#" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Booking System
+          {/* Solutions */}
+          <div className="space-y-6">
+            <h3 className="text-white font-semibold text-lg">Solutions</h3>
+            <nav className="space-y-3">
+              {[
+                ['Booking System', '#'],
+                ['Membership Management', '#'],
+                ['Court Management', '#'],
+                ['Payment Processing', '#'],
+                ['Analytics Dashboard', '#']
+              ].map(([title, url]) => (
+                <Link
+                  key={title}
+                  to={url}
+                  className="block text-sm hover:text-[#2A7D9B] transition-colors"
+                >
+                  {title}
                 </Link>
-              </li>
-              <li>
-                <Link to="#" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Membership Management
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Court Administration
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Payment Solutions
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="text-gray-300 hover:text-[#2A7D9B] transition-colors">
-                  Player Analytics
-                </Link>
-              </li>
-            </ul>
+              ))}
+            </nav>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Contact Us</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <FiMapPin size={20} className="text-[#2A7D9B] mr-2 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">123 Padel Street, Copenhagen, Denmark</span>
-              </li>
-              <li className="flex items-center">
-                <FiPhone size={20} className="text-[#2A7D9B] mr-2 flex-shrink-0" />
-                <span className="text-gray-300">+45 31 78 75 28</span>
-              </li>
-              <li className="flex items-center">
-                <MdEmail size={20} className="text-[#2A7D9B] mr-2 flex-shrink-0" />
-                <span className="text-gray-300">info@example.io</span>
-              </li>
-            </ul>
+          {/* Contact */}
+          <div className="space-y-6">
+            <h3 className="text-white font-semibold text-lg">Contact</h3>
+            <div className="space-y-4">
+              <div className="flex items-start">
+                <FiMapPin className="flex-shrink-0 w-5 h-5 mt-1 text-[#2A7D9B]" />
+                <span className="ml-3 text-sm">
+                  123 Sports Avenue<br />
+               
+                </span>
+              </div>
+              <div className="flex items-center">
+                <FiPhone className="flex-shrink-0 w-5 h-5 text-[#2A7D9B]" />
+                <span className="ml-3 text-sm">+45 31 78 75 28</span>
+              </div>
+              <div className="flex items-center">
+                <MdEmail className="flex-shrink-0 w-5 h-5 text-[#2A7D9B]" />
+                <span className="ml-3 text-sm">info@acecommunity.com</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} ACECOMMUNITY. All rights reserved.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="#" className="text-gray-400 text-sm hover:text-[#2A7D9B]">
-              Privacy Policy
-            </Link>
-            <Link to="#" className="text-gray-400 text-sm hover:text-[#2A7D9B]">
-              Terms of Service
-            </Link>
-            <Link to="#" className="text-gray-400 text-sm hover:text-[#2A7D9B]">
-              Cookie Policy
-            </Link>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-xs text-white/50">
+              © {new Date().getFullYear()} ACE Community. All rights reserved.
+            </p>
+            <div className="flex space-x-6">
+              <Link to="/privacy" className="text-xs hover:text-[#2A7D9B] transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="text-xs hover:text-[#2A7D9B] transition-colors">
+                Terms of Service
+              </Link>
+              <Link to="/cookies" className="text-xs hover:text-[#2A7D9B] transition-colors">
+                Cookie Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;
